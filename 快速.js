@@ -12,24 +12,25 @@ console.log(total)
 let _arr = [90, 17, 86, 34, 239, 54, 232];
 
 function quick(arr) {
-    if(arr.length <= 1){
+    if (arr.length <= 1) {
         return arr
     }
 
-    let midIndex = Math.floor(arr.length / 2);
-    let midValue = arr.splice(midIndex, 1)[0]
+    let s = Math.floor(arr / 2);
+    let midIndex = arr.splice(s, 1)[0]
 
-    let left = [];
+    let left =[];
     let right = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] < midValue) {
+
+    for (let i = 0;i<arr.length;i++){
+        if(arr[i] < midIndex){
             left.push(arr[i])
-        } else {
+        }else {
             right.push(arr[i])
         }
     }
 
-    return [...quick(left), midValue, ...quick(right)]
+    return [...quick(left),midIndex,...quick(right)]
 
 }
 
