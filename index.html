@@ -3,36 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="./链表.js"></script>
 </head>
 <body>
 
-<input type="text" oninput="throttle(function(){
-    console.log(3232)
-},500)">
-<input type="text" oninput="realFangdou(this.value,200)">
 </body>
 <script>
 
-    function realFangdou(value, delay) {
-        if (window.time) {
-            clearTimeout(window.time)
-        }
-
-        window.time = setTimeout(function () {
-            console.log(value)
-        }, delay)
-    }
-
-
-    function throttle(fn, time) {
-        if(window.times){
-            return
-        }
-        window.times = setTimeout(function () {
-            fn()
-            window.times = null
-        },time)
-    }
 
 </script>
 </html>
