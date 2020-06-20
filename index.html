@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./链表.js"></script>
 </head>
 <body>
 
 </body>
 <script>
+    const curry = fn => {
+        const _c = (restNum, argsList) => {
+            console.log(1111,restNum)
+            return restNum === 0 ?
+            fn(...argsList) : x => _c(restNum - 1, [...argsList, x]);
+        }
 
+        return _c(fn.length, []);
+    }
 
+    function a(a, b) {
+        console.log(a)
+        console.log(b)
+    }
+
+    let aa = curry(a)
+    aa(1)(2)
 </script>
 </html>
