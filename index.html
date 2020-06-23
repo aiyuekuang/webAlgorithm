@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./链表.js"></script>
 </head>
 <body>
 
 </body>
 <script>
-
-
+  let arr = [4, 3, 2, 7, 8, 2, 3, 1]
+  arr.sort((a, b) => {
+    return a - b
+  })
+    let temp = []
+    arr.forEach((data,i)=>{
+      if(data === arr[i -1]){
+        temp.push(data)
+      }
+    })
+  temp = Array.from(new Set(temp))
+console.log(232,temp)
 </script>
 </html>
