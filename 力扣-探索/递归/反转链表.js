@@ -1,4 +1,3 @@
-
 // 反转一个单链表。
 //
 // 示例:
@@ -30,31 +29,53 @@ function ListNode(val) {
 
 //生成链表
 class List {
-  static creatNode(val) {
+  static createNode(val) {
     return new ListNode(val);
   }
 
   constructor() {
     this.head = null
+    this.length = 0
   }
 
   insert(node) {
     if (this.head) {
       node.next = this.head
-    } else {
-      this.head = node
     }
+    this.head = node;
+    this.length++;
+  }
+
+  show() {
+    let node = this.head;
+    let str = ""
+    while (node) {
+      str += node.val + " > "
+      node = node.next
+    }
+    return str;
   }
 }
 
 let list = new List()
-let arr = [1,2,3,4,5,null]
-arr.forEach((data,i)=>{
+let arr = [1, 2, 3, 4, 5, null]
+arr.forEach((data, i) => {
   list.insert(List.createNode(data))
 })
 
-var reverseList = function (head) {
+let reverseList = function (head) {
+  let newHead = null;
+  let node;
+  while (head !== null) {
+    node = head
+    head = head.next
 
+    node.next = newHead;
+    newHead = node
+  }
+  return newHead;
 };
 
+
+console.log(list.show())
 console.log(reverseList(list.head))
