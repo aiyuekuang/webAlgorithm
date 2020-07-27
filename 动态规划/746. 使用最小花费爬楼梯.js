@@ -30,11 +30,10 @@ var minCostClimbingStairs = function (cost) {
   let f1 = 0, f2 = 0;
   for (let i = 0; i < cost.length; i++) {
     let minCoast = cost[i] + Math.min(f1, f2)
-    f1 = f2;
-    f2 = minCoast;
-    console.log(1111,minCoast)
+    f2 = f1;
+    f1 = minCoast;
   }
-  return Math.min(f2,f2)
+  return Math.min(f1, f2)
 };
 
-console.log(minCostClimbingStairs([0, 1, 2, 2]))
+console.log(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]))
