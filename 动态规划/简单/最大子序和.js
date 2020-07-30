@@ -13,19 +13,18 @@
  * @return {number}
  */
 let maxSubArray = function (nums) {
-  if(!nums.length){
+  if (!nums.length) {
     return 0
   }
-
-  let maxArr = [nums[0]]
-  for (let i = 1; i < nums.length; i++) {
-    if (nums[i] + maxArr[i - 1] > 0 && maxArr[i - 1] > 0) {
-      maxArr[i] = nums[i] + maxArr[i - 1]
-    } else {
-      maxArr[i] = nums[i]
-    }
+  if (nums.length === 1) {
+    return nums[0]
   }
-  return Math.max(...maxArr)
+
+  let arr = [nums[0]];
+  for (let i = 1; i < nums.length; i++) {
+    arr[i] = Math.max(arr[i-1] + nums[i],nums[i])
+  }
+  return Math.max(...arr)
 };
 
 console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
