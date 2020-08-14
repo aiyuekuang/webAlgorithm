@@ -18,7 +18,6 @@ function myNew(fun) {
         __proto__: fun.prototype
     };
 
-    console.log(2323,[].slice.call(arguments,1))
     //获取构造函数
     fun.apply(obj,[].slice.call(arguments,1))
     return obj
