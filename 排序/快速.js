@@ -31,7 +31,6 @@ function quick(arr) {
     }
 
     return [...quick(left),midIndex,...quick(right)]
-
 }
 
 console.log(quick(_arr))
