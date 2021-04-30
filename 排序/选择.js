@@ -1,21 +1,17 @@
 let _arr = [90, 17, 86, 34, 239, 54, 232];
 
 function selectionSort(arr = _arr) {
-    let len = arr.length;
-    let minIndex, temp;
-
-    for (let i = 0; i < len - 1; i++) {
-        minIndex = i;
-        for (let j = i + 1; j < len; j++) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex = j
+    let temp = null
+    for (let i =0;i<arr.length;i++){
+        for (let j = i;j<arr.length;j++){
+            if(arr[i] > arr[j]){
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
-        temp = arr[i];
-        arr[i] = arr[minIndex];
-        arr[minIndex] = temp;
     }
-    return arr
+    return arr;
 }
 
 

@@ -20,6 +20,21 @@
  * @param {number} n
  * @return {number}
  */
-var numTrees = function(n) {
-
+var numTrees = function (n) {
+  let dp = Array(n + 1);
+  dp[0] = 1;
+  dp[1] = 1
+  for (let i = 2; i < n + 1; i++) {
+    for (let j = 1; j < i + 1; j++) {
+      if (!dp[i]) {
+        dp[i] = dp[j - 1] * dp[i - j]
+      } else {
+        dp[i] += dp[j - 1] * dp[i - j]
+      }
+    }
+  }
+  console.log(22222, dp)
+  return dp[n]
 };
+
+console.log(11111, numTrees(3))

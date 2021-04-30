@@ -24,17 +24,17 @@
  * @return {number}
  */
 var maxProfit = function (prices) {
-  if(!prices.length){
+  if (!prices || !prices.length) {
     return 0
   }
   let min = prices[0];
-  let arr = [0];
+  let dp = [0];
 
   for (let i = 1; i < prices.length; i++) {
-    min = Math.min(min,prices[i])
-    arr[i] = Math.max(arr[i -1],prices[i] - min)
+    min = Math.min(prices[i], min);
+    dp[i] = Math.max(dp[i - 1], prices[i] - min)
   }
-  return arr[arr.length -1];
+  return dp[prices.length - 1]
 };
 
-console.log(1111, maxProfit([7,1,5,3,6,4]))
+console.log(1111, maxProfit([7, 1, 5, 3, 6, 4]))

@@ -39,14 +39,11 @@ var climbStairs = function (n) {
 
 //动态规划
 var climbStairss = function (n) {
-  let p=0, q = 1, r =1;
-  for (let i = 1; i < n; i++) {
-    p = q;
-    q = r;
-    r = p + q;
+  let dp = [1, 1];
+  for (let i = 2; i <= n; i++) {
+    dp[i] = dp[i - 1] + dp[i - 2]
   }
-  return r
-
+  return dp[n]
 };
 
 console.log(climbStairss(5))
